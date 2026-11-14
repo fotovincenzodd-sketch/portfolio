@@ -15,7 +15,7 @@
 
   <style>
     /* =========================
-       COLORI DEL SITO
+       COLORI
        ========================= */
 
     :root {
@@ -56,7 +56,7 @@
     }
 
     a:focus-visible {
-      outline: 2px solid var(--accent);
+      outline: 2px solid currentColor;
       outline-offset: 6px;
     }
 
@@ -86,16 +86,16 @@
     }
 
     /* =========================
-       BARRA SUPERIORE
+       BARRA SUPERIORE CHIARA
        ========================= */
 
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: #faf9f6;
-      color: #202020;
-      border-bottom: 1px solid #e3e1dc;
+      background: var(--background);
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
     }
 
     .navigation {
@@ -133,16 +133,8 @@
     }
 
     /* =========================
-       PRIMA SEZIONE
+       TITOLI E TESTI
        ========================= */
-
-    .hero {
-      display: flex;
-      align-items: center;
-      min-height: 78vh;
-      padding-block: 110px;
-      background: var(--background);
-    }
 
     .eyebrow {
       margin: 0 0 22px;
@@ -154,18 +146,96 @@
     }
 
     h1 {
-      max-width: 950px;
       margin: 0 0 30px;
-      font-size: clamp(2.8rem, 7vw, 5.8rem);
       font-weight: 600;
-      line-height: 1.08;
       letter-spacing: -0.05em;
     }
 
-    .hero-description {
-      max-width: 590px;
-      margin: 0;
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+    }
+
+    .section-description {
+      max-width: 620px;
+      margin: 0 0 42px;
       color: var(--muted);
+    }
+
+    /* =========================
+       HERO FOTOGRAFICA
+       ========================= */
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding-block: 90px;
+      overflow: hidden;
+      background: #202020;
+      color: #ffffff;
+    }
+
+    .hero-background {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Velo scuro sopra la foto, sotto al testo */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.72) 0%,
+        rgba(0, 0, 0, 0.48) 55%,
+        rgba(0, 0, 0, 0.22) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      color: #ffffff;
+      font-size: clamp(3rem, 6.5vw, 5.8rem);
+      line-height: 1.08;
+    }
+
+    .hero .eyebrow {
+      color: #ffffff;
+    }
+
+    .hero-description {
+      max-width: 580px;
+      margin: 0;
+      color: #ffffff;
       font-size: 1.05rem;
       line-height: 1.85;
     }
@@ -215,35 +285,36 @@
       background: transparent;
     }
 
+    /* Pulsanti sopra la fotografia */
+    .hero .button {
+      border-color: #ffffff;
+      background: #ffffff;
+      color: #202020;
+    }
+
+    .hero .button:hover {
+      border-color: #eaeaea;
+      background: #eaeaea;
+    }
+
+    .hero .button-secondary {
+      border-color: #ffffff;
+      background: transparent;
+      color: #ffffff;
+    }
+
+    .hero .button-secondary:hover {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
     /* =========================
-       SEZIONI E TITOLI
+       SEZIONI
        ========================= */
 
     section:not(.hero) {
       padding-block: 95px;
       border-top: 1px solid var(--border);
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 500;
-      line-height: 1.2;
-      letter-spacing: -0.04em;
-    }
-
-    h3 {
-      margin: 0 0 12px;
-      font-size: 1.15rem;
-      font-weight: 600;
-      line-height: 1.4;
-      letter-spacing: -0.02em;
-    }
-
-    .section-description {
-      max-width: 620px;
-      margin: 0 0 42px;
-      color: var(--muted);
     }
 
     /* =========================
@@ -263,481 +334,4 @@
       border-radius: 2px;
     }
 
-    .project-cover {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      aspect-ratio: 4 / 3;
-      padding: 24px;
-      background: var(--placeholder);
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-align: center;
-    }
-
-    .project-content {
-      padding: 26px;
-    }
-
-    .category {
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-
-    .project-content p:last-child {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    /* =========================
-       SERVIZI
-       ========================= */
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .service {
-      padding: 34px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-    }
-
-    .service p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    /* =========================
-       CHI SONO
-       ========================= */
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      align-items: start;
-      gap: 70px;
-    }
-
-    .about-text p {
-      margin-top: 0;
-      margin-bottom: 22px;
-      color: var(--muted);
-    }
-
-    .about-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* =========================
-       CONTATTI
-       ========================= */
-
-    .contact-box {
-      padding: clamp(28px, 6vw, 64px);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-    }
-
-    .contact-box > p:not(.eyebrow) {
-      max-width: 650px;
-      color: var(--muted);
-    }
-
-    .contact-note {
-      margin-top: 24px;
-      margin-bottom: 0;
-      font-size: 0.9rem;
-    }
-
-    /* =========================
-       PIEDE DELLA PAGINA
-       ========================= */
-
-    footer {
-      padding-block: 30px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    footer p {
-      margin: 0;
-    }
-
-    footer a:hover {
-      color: var(--text);
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    /* =========================
-       TABLET E SMARTPHONE
-       ========================= */
-
-    @media (max-width: 800px) {
-      html {
-        scroll-padding-top: 145px;
-      }
-
-      .navigation {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding-block: 18px;
-      }
-
-      .navigation-links {
-        gap: 20px;
-      }
-
-      .navigation-links a {
-        font-size: 0.85rem;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-block: 85px;
-      }
-
-      .projects {
-        grid-template-columns: 1fr;
-      }
-
-      .about-layout {
-        grid-template-columns: 1fr;
-        gap: 26px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .logo {
-        font-size: 0.82rem;
-      }
-
-      .navigation-links {
-        gap: 16px;
-      }
-
-      .navigation-links a {
-        font-size: 0.8rem;
-      }
-
-      .hero {
-        padding-block: 70px;
-      }
-
-      .hero-description {
-        font-size: 1rem;
-      }
-
-      .services {
-        grid-template-columns: 1fr;
-      }
-
-      .service {
-        padding: 28px;
-      }
-
-      section:not(.hero) {
-        padding-block: 65px;
-      }
-
-      .button-group {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .footer-content {
-        flex-direction: column;
-      }
-    }
-
-    /* =========================
-       MOVIMENTO RIDOTTO
-       ========================= */
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .button {
-        transition: none;
-      }
-    }
-  </style>
-</head>
-
-<body id="inizio">
-
-  <a class="skip-link" href="#contenuto">
-    Vai al contenuto
-  </a>
-
-  <!-- BARRA SUPERIORE -->
-
-  <header>
-    <div class="container navigation">
-
-      <a class="logo" href="#inizio">
-        VINCENZO DI DONATO
-      </a>
-
-      <nav class="navigation-links" aria-label="Menu principale">
-        <a href="#portfolio">Portfolio</a>
-        <a href="#servizi">Servizi</a>
-        <a href="#chi-sono">Chi sono</a>
-        <a href="#contatti">Contatti</a>
-      </nav>
-
-    </div>
-  </header>
-
-  <main id="contenuto">
-
-    <!-- PRIMA SEZIONE -->
-
-<section class="hero" aria-labelledby="titolo-principale">
-<section
-  class="hero hero-fullscreen"
-  aria-labelledby="titolo-principale"
->
-  <!-- FOTOGRAFIA A TUTTA LARGHEZZA -->
-  <img
-    class="hero-background"
-    src="./prima-foto.jpg"
-    alt=""
-    fetchpriority="high"
-  >
-
-  <!-- TESTO SOVRAPPOSTO -->
-  <div class="container hero-content">
-
-    <p class="eyebrow">
-      Fotografia · Video · Identità visiva
-    </p>
-
-    <h1 id="titolo-principale">
-      Le tue storie.<br>
-      Il mio sguardo.
-    </h1>
-
-    <p class="hero-description">
-      Sono Vincenzo Di Donato, fotografo, videomaker e grafico
-      in Abruzzo. Creo immagini e contenuti visivi per raccontare
-      persone, attività e progetti.
-    </p>
-
-    <div class="button-group">
-
-      <a class="button" href="#portfolio">
-        Esplora i lavori
-      </a>
-
-      <a class="button button-secondary" href="#contatti">
-        Parliamo del tuo progetto
-      </a>
-
-    </div>
-
-  </div>
-</section>
-
-    <!-- SERVIZI -->
-
-    <section id="servizi" aria-labelledby="titolo-servizi">
-      <div class="container">
-
-        <p class="eyebrow">
-          Come posso aiutarti
-        </p>
-
-        <h2 id="titolo-servizi">
-          Servizi
-        </h2>
-
-        <p class="section-description">
-          Dall'idea al contenuto finale, costruisco progetti
-          visivi in base alle esigenze di ogni collaborazione.
-        </p>
-
-        <div class="services">
-
-          <article class="service">
-
-            <h3>
-              Fotografia
-            </h3>
-
-            <p>
-              Ritratti, eventi, sport e immagini per attività:
-              fotografie pensate per raccontare persone e momenti.
-            </p>
-
-          </article>
-
-          <article class="service">
-
-            <h3>
-              Produzione video
-            </h3>
-
-            <p>
-              Video promozionali, racconti di eventi e progetti
-              creativi, dalle riprese al montaggio.
-            </p>
-
-          </article>
-
-          <article class="service">
-
-            <h3>
-              Contenuti social
-            </h3>
-
-            <p>
-              Reel, fotografie e contenuti visivi per presentare
-              la tua attività e comunicare con il tuo pubblico.
-            </p>
-
-          </article>
-
-          <article class="service">
-
-            <h3>
-              Grafica e branding
-            </h3>
-
-            <p>
-              Loghi, identità visiva e materiali grafici
-              per dare coerenza alla comunicazione del tuo brand.
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CHI SONO -->
-
-    <section id="chi-sono" aria-labelledby="titolo-chi-sono">
-      <div class="container about-layout">
-
-        <div>
-
-          <p class="eyebrow">
-            Dietro le immagini
-          </p>
-
-          <h2 id="titolo-chi-sono">
-            Ciao, sono Vincenzo.
-          </h2>
-
-        </div>
-
-        <div class="about-text">
-
-          <p>
-            Sono un fotografo, videomaker e grafico con base
-            in Abruzzo. Il mio lavoro si muove tra immagini,
-            narrazione e comunicazione visiva.
-          </p>
-
-          <p>
-            Mi interessa trovare il linguaggio giusto per ogni
-            progetto: l'atmosfera di un video, il gesto in un
-            ritratto, l'identità di un'attività.
-          </p>
-
-          <p>
-            Collaboro con persone, realtà locali e progetti
-            creativi, curando il percorso dall'idea iniziale
-            alla realizzazione dei contenuti.
-          </p>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTATTI -->
-
-    <section id="contatti" aria-labelledby="titolo-contatti">
-      <div class="container">
-
-        <div class="contact-box">
-
-          <p class="eyebrow">
-            Iniziamo da un'idea
-          </p>
-
-          <h2 id="titolo-contatti">
-            Raccontami il tuo progetto.
-          </h2>
-
-          <p>
-            Hai bisogno di fotografie, di un video o di una nuova
-            identità visiva? Qui troverai i miei contatti per
-            richieste, preventivi e collaborazioni.
-          </p>
-
-          <!--
-            Aggiungeremo qui i recapiti reali:
-            email, Instagram e WhatsApp.
-          -->
-
-          <p class="contact-note">
-            Recapiti in aggiornamento.
-          </p>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- PIEDE DELLA PAGINA -->
-
-  <footer>
-    <div class="container footer-content">
-
-      <p>
-        © <span id="anno">2026</span>
-        Vincenzo Di Donato
-      </p>
-
-      <a href="#inizio">
-        Torna in alto
-      </a>
-
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("anno").textContent =
-      new Date().getFullYear();
-  </script>
-
-</body>
-</html>
+    .project-cover

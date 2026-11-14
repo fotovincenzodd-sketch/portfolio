@@ -448,6 +448,15 @@
         scroll-behavior: auto;
       }
     }
+    /* PARALLASSE LEGGERA DELLA FOTO PRINCIPALE */
+@media (min-width: 801px) and (prefers-reduced-motion: no-preference) {
+  .hero-photo {
+    top: -50px;
+    bottom: auto;
+    height: calc(100% + 100px);
+    transform: translate3d(0, var(--parallax-y, 0px), 0);
+  }
+}
   </style>
 </head>
 
@@ -708,9 +717,74 @@
   </footer>
 
   <script>
-    document.getElementById("anno").textContent =
-      new Date().getFullYear();
-  </script>
+  // Aggiorna l'anno nel footer.
+  document.getElementById("anno").textContent =
+    new Date().getFullYear();
 
+  // Parallasse della fotografia principale.
+  const hero = document.querySelector(".hero");
+  const heroPhoto = document.querySelector(".hero-photo");
+
+  const parallaxEnabled = window.matchMedia(
+    "(min-width: 801px) and (prefers-reduced-motion: no-preference)"
+  );
+
+  let framePending = false;
+
+  function updateParallax() {
+    framePending = false;
+
+    if (!hero || !heroPhoto) {
+      return;
+    }
+
+    if (!parallaxEnabled.matches) {
+      heroPhoto.style.removeProperty("--parallax-y");
+      return;
+    }
+
+    const bounds = hero.getBoundingClientRect();
+
+    // Non aggiornare la foto quando la sezione è fuori schermo.
+    if (bounds.bottom <= 0 || bounds.top >= window.innerHeight) {
+      return;
+    }
+
+    const movement = Math.max(
+      -40,
+      Math.min(40, -bounds.top * 0.12)
+    );
+
+    heroPhoto.style.setProperty(
+      "--parallax-y",
+      movement + "px"
+    );
+  }
+
+  function requestParallaxUpdate() {
+    if (!framePending) {
+      framePending = true;
+      window.requestAnimationFrame(updateParallax);
+    }
+  }
+
+  window.addEventListener(
+    "scroll",
+    requestParallaxUpdate,
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "resize",
+    requestParallaxUpdate
+  );
+
+  parallaxEnabled.addEventListener(
+    "change",
+    requestParallaxUpdate
+  );
+
+  requestParallaxUpdate();
+</script>
 </body>
 </html>

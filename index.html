@@ -451,9 +451,9 @@
     /* PARALLASSE DELLA FOTO PRINCIPALE */
 @media (min-width: 801px) and (prefers-reduced-motion: no-preference) {
   .hero-photo {
-    top: -90px;
+    top: -150px;
     bottom: auto;
-    height: calc(100% + 180px);
+    height: calc(100% + 300px);
     transform: translate3d(0, var(--parallax-y, 0px), 0);
   }
 }
@@ -751,8 +751,8 @@
     }
 
     const movement = Math.max(
-      -40,
-      Math.min(40, -bounds.top * 0.12)
+      -140,
+      Math.min(140, -bounds.top * 0.25)
     );
 
     heroPhoto.style.setProperty(

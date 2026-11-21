@@ -80,5 +80,32 @@ window.addEventListener('pageshow',event=>{if(event.persisted)setup();});
 setup();
 })();
 </script>
+<style>
+@media(max-width:700px){.hero{background:url("Castello%20Di%20Roccascalegna.jpg") center center/cover no-repeat #0a0a0a}.hero.motion-ready::before{display:none}.hero .eyebrow,.hero h1{position:relative;top:var(--mobile-heading-shift,0px)}}
+</style>
+<script>
+(()=>{
+'use strict';
+const hero=document.querySelector('.hero');
+const content=hero&&hero.querySelector('.hero-content');
+const eyebrow=hero&&hero.querySelector('.eyebrow');
+const mobile=window.matchMedia('(max-width:700px)');
+if(!hero||!content||!eyebrow)return;
+let frame;
+function positionHeading(){
+ hero.style.removeProperty('--mobile-heading-shift');
+ if(!mobile.matches)return;
+ const normalTop=content.offsetTop+eyebrow.offsetTop;
+ hero.style.setProperty('--mobile-heading-shift',Math.min(0,32-normalTop)+'px');
+}
+function schedule(){cancelAnimationFrame(frame);frame=requestAnimationFrame(positionHeading);}
+positionHeading();
+window.addEventListener('resize',schedule,{passive:true});
+window.addEventListener('pageshow',schedule);
+if(mobile.addEventListener)mobile.addEventListener('change',schedule);else if(mobile.addListener)mobile.addListener(schedule);
+if('ResizeObserver' in window){const observer=new ResizeObserver(schedule);observer.observe(hero);observer.observe(content);}
+if(document.fonts)document.fonts.ready.then(schedule);
+})();
+</script>
 </body>
 </html>

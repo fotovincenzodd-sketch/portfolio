@@ -1,40 +1,38 @@
-# Asset fotografici – PEAK × Lake Garda Marathon
+# Fotografie del case study PEAK × Lake Garda Marathon
 
-La pagina del case study e la pagina Portfolio sono state create sul branch `portfolio-peak-case-study`.
-
-Per completare la pubblicazione, inserire i JPEG originali nelle cartelle indicate, mantenendo questi nomi file.
+Le 46 fotografie originali sono conservate nella cartella `projects/peak-lake-garda-marathon/` con i nomi ricevuti. Non sono state spostate, rinominate o modificate.
 
 ## Copertina
-- `assets/projects/peak/cover.jpg` ← `Peak Day2-116.jpg`
 
-## Product & Advertising
-Cartella: `assets/projects/peak/advertising/`
+- `18-Peak Day2-116.jpg` — ritratto ambientato della produzione pubblicitaria.
 
-| File originale | Nome destinazione |
-|---|---|
-| Peak Day1-30.jpg | peak-day1-30.jpg |
-| Peak Day2-55.jpg | peak-day2-55.jpg |
-| Peak Day2-83.jpg | peak-day2-83.jpg |
-| Peak Day3-12.jpg | peak-day3-12.jpg |
-| Peak Day3-37.jpg | peak-day3-37.jpg |
-| Peak Day1-15.jpg | peak-day1-15.jpg |
+## Capitoli e selezione in pagina
 
-## Event Photography
-Cartella: `assets/projects/peak/marathon/`
+I file `1–31` documentano la produzione **Product & Advertising Photography**. I file `32–46` documentano la **Lake Garda Marathon**. La pagina usa i seguenti scatti:
 
-| File originale | Nome destinazione |
-|---|---|
-| Peak Day5 Marathon-88.jpg | peak-day5-88.jpg |
-| Peak Day5 Marathon-135.jpg | peak-day5-135.jpg |
-| Peak Day5 Marathon-63(1).jpg | peak-day5-63.jpg |
-| Peak Day5 Marathon-113.jpg | peak-day5-113.jpg |
-| Peak Day5 Marathon-129.jpg | peak-day5-129.jpg |
-| Peak Day5 Marathon-179.jpg | peak-day5-179.jpg |
-| Peak Day5 Marathon-156.jpg | peak-day5-156.jpg |
-| Peak Day5 Marathon-297.jpg | peak-day5-297.jpg |
-| Peak Day5 Marathon-339.jpg | peak-day5-339.jpg |
-| Peak Day5 Marathon-131.jpg | peak-day5-131.jpg |
-| Peak Morning 11-04-26-215(1).jpg | peak-morning-215.jpg |
-| Peak Morning 11-04-26-269.jpg | peak-morning-269.jpg |
+### Product & Advertising Photography
 
-I file vanno caricati in qualità web ottimizzata ma senza alterare il trattamento cromatico originale. La pagina usa immagini responsive, lazy loading per le gallerie e descrizioni alternative.
+- `4-Peak Day1-30.jpg`
+- `8-Peak Day2-27.jpg`
+- `13-Peak Day2-66.jpg`
+- `19-Peak Day2-121.jpg`
+- `22-Peak Day3-12.jpg`
+- `24-Peak Day3-37.jpg`
+- `27-Peak Morning 11-04-26-9.jpg`
+- `28-Peak Morning 11-04-26-10.jpg`
+- `30-Peak Morning 11-04-26-31.jpg`
+
+### Event Photography
+
+- `32-Peak Morning 11-04-26-179.jpg`
+- `34-Peak Morning 11-04-26-214.jpg`
+- `36-Peak Morning 11-04-26-269.jpg`
+- `37-Peak Day5 Marathon-22.jpg`
+- `39-Peak Day5 Marathon-88.jpg`
+- `40-Peak Day5 Marathon-96.jpg`
+- `42-Peak Day5 Marathon-129.jpg`
+- `43-Peak Day5 Marathon-135.jpg`
+- `45-Peak Day5 Marathon-156.jpg`
+- `46-Peak Day5 Marathon-179.jpg`
+
+Tutte le altre fotografie originali restano nella cartella del progetto e sono disponibili per una futura estensione della selezione.

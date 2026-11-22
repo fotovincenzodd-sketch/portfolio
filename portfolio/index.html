@@ -11,6 +11,7 @@
 @media(max-width:800px){.navigation{position:relative;flex-direction:row;align-items:center;gap:12px;padding-block:12px}.logo small{display:none}.menu-toggle{display:flex;width:44px;height:44px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}.site-menu .nav-links{display:none;position:absolute;top:calc(100% + 10px);right:0;z-index:20;width:min(88vw,320px);align-items:stretch;flex-direction:column;gap:6px;padding:14px;background:var(--bg);border:1px solid var(--line);box-shadow:0 16px 36px rgba(0,0,0,.14)}.site-menu[open] .nav-links{display:flex}.site-menu .nav-links a{padding:10px 12px}.project.featured{grid-template-columns:1fr}.projects{padding-bottom:72px}.featured .media{aspect-ratio:4/3}}
 @media(max-width:600px){.project,.project.featured{grid-column:span 12}.media{aspect-ratio:4/3}.contact{align-items:flex-start;flex-direction:column}h1{font-size:clamp(2.8rem,14vw,4.4rem)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+@media(min-width:801px){.site-menu:not([open])>.nav-links{display:flex}.site-menu .menu-toggle{display:none}}
 </style>
 </head>
 <body>
